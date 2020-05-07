@@ -1,6 +1,8 @@
 package com.test.samples.mq;
 
 import com.beust.jcommander.JCommander;
+import com.test.samples.mq.queue.Consumer;
+import com.test.samples.mq.queue.Producer;
 
 public class App {
 

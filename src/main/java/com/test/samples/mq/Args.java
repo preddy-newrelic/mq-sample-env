@@ -27,6 +27,9 @@ public class Args {
 	@Parameter(names = {"--queue", "-q"}, description = "Queue to put/get messages")
 	private String queue = "DEV.QUEUE.1";
 	
+	@Parameter(names = {"--topic", "-t"}, description = "Topic to put/get messages")
+	private String topic = "DEV.TOPIC.1";
+	
 	@Parameter(names = {"--message", "-m"}, description = "message to put")
 	private String message = "a sample message from test producer. message id is " + System.currentTimeMillis() % 1000;
 
@@ -96,6 +99,14 @@ public class Args {
 		this.queue = queue;
 	}
 	
+	public String getTopic() {
+		return topic;
+	}
+
+	public void setTopic(String topic) {
+		this.topic = topic;
+	}
+
 	public String getMessage() {
 		return message;
 	}

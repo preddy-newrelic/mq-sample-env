@@ -1,4 +1,4 @@
-package com.test.samples.mq;
+package com.test.samples.mq.queue;
 
 import javax.jms.Destination;
 import javax.jms.JMSConsumer;
@@ -7,6 +7,7 @@ import javax.jms.JMSContext;
 import com.ibm.msg.client.jms.JmsConnectionFactory;
 import com.ibm.msg.client.jms.JmsFactoryFactory;
 import com.ibm.msg.client.wmq.WMQConstants;
+import com.test.samples.mq.Args;
 
 public class Consumer {
 
@@ -30,7 +31,7 @@ public class Consumer {
 		jmsConnectionFactory.setStringProperty(WMQConstants.WMQ_CHANNEL, args.getChannel());
 		jmsConnectionFactory.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
 		jmsConnectionFactory.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER, args.getQueueManager());
-		jmsConnectionFactory.setStringProperty(WMQConstants.WMQ_APPLICATIONNAME, "MQ Sample Producer");
+		jmsConnectionFactory.setStringProperty(WMQConstants.WMQ_APPLICATIONNAME, "MQ Sample Consumer");
 		jmsConnectionFactory.setStringProperty(WMQConstants.USERID, args.getUsername());
 		jmsConnectionFactory.setStringProperty(WMQConstants.PASSWORD, args.getPassword());
 

@@ -1,4 +1,4 @@
-package com.test.samples.mq;
+package com.test.samples.mq.queue;
 
 import javax.jms.Destination;
 import javax.jms.JMSContext;
@@ -8,6 +8,7 @@ import javax.jms.TextMessage;
 import com.ibm.msg.client.jms.JmsConnectionFactory;
 import com.ibm.msg.client.jms.JmsFactoryFactory;
 import com.ibm.msg.client.wmq.WMQConstants;
+import com.test.samples.mq.Args;
 
 public class Producer {
 
