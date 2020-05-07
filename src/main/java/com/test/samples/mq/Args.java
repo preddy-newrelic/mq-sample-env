@@ -6,13 +6,13 @@ public class Args {
 	@Parameter(names = "--help", description = "This usage help", help = true)
 	private boolean help;
 	
-	@Parameter(names = {"-host", "-h"}, description = "MQ server host")
+	@Parameter(names = {"--host", "-h"}, description = "MQ server host")
 	private String host = "127.0.0.1";
 
-	@Parameter(names = {"-port", "-p"}, description = "MQ server port")
+	@Parameter(names = {"--port", "-p"}, description = "MQ server port")
 	private Integer port = 1414;
 
-	@Parameter(names = {"-channel", "-c"}, description = "Channel")
+	@Parameter(names = {"--channel", "-c"}, description = "Channel")
 	private String channel = "DEV.ADMIN.SVRCONN";
 	
 	@Parameter(names = {"--queue_manager", "-qm"}, description = "Queue Manager")
@@ -33,8 +33,8 @@ public class Args {
 	@Parameter(names = {"--message", "-m"}, description = "message to put")
 	private String message = "a sample message from test producer. message id is " + System.currentTimeMillis() % 1000;
 
-	@Parameter(names = {"--listen", "-l"}, description = "Set to false to put messages to queue. Set to true to get messages from queue", arity = 1)
-	private boolean listen = false;
+	@Parameter(names = {"--mode"}, description = "Mode: Choose one of produce, consume, publish, subscribe", required = true)
+	private String mode = null;
 	
 	@Parameter(names = {"--numMessages", "-n"}, description = "Number of messages to put or get")
 	private Integer numMessages = 1;
@@ -115,12 +115,12 @@ public class Args {
 		this.message = message;
 	}
 	
-	public boolean isListen() {
-		return listen;
+	public String getMode() {
+		return mode;
 	}
 
-	public void setListen(boolean listen) {
-		this.listen = listen;
+	public void setMode(String mode) {
+		this.mode = mode;
 	}
 
 	public Integer getNumMessages() {

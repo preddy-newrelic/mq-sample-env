@@ -32,7 +32,7 @@ public class Publish {
 		jmsConnectionFactory.setStringProperty(WMQConstants.WMQ_CHANNEL, args.getChannel());
 		jmsConnectionFactory.setIntProperty(WMQConstants.WMQ_CONNECTION_MODE, WMQConstants.WMQ_CM_CLIENT);
 		jmsConnectionFactory.setStringProperty(WMQConstants.WMQ_QUEUE_MANAGER, args.getQueueManager());
-		jmsConnectionFactory.setStringProperty(WMQConstants.WMQ_APPLICATIONNAME, "MQ Sample Producer");
+		jmsConnectionFactory.setStringProperty(WMQConstants.WMQ_APPLICATIONNAME, "MQ Sample Topic Publisher");
 		jmsConnectionFactory.setStringProperty(WMQConstants.USERID, args.getUsername());
 		jmsConnectionFactory.setStringProperty(WMQConstants.PASSWORD, args.getPassword());
 
@@ -49,9 +49,9 @@ public class Publish {
 	public void putMessage() {
 		System.out.println("Putting message on Topic: " + args.getTopic());
 		TextMessage message = context
-				.createTextMessage("Your lucky number today is " + System.currentTimeMillis() % 1000);
+				.createTextMessage("Your T number  is " + System.currentTimeMillis() % 1000);
 		producer.send(destination, message);
-		System.out.println("\nSent message:" + message);
+		System.out.println("\nSent message to topic:" + message);
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
